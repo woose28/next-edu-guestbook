@@ -16,8 +16,8 @@ title: GitHub Workshop Guestbook
     <section id="guestbook">
         <div class="container">
             <div class="section-header">
-                <h1 role="section-heading">{{site.workshop.name}} Workshop Guestbook</h1>
-                <h3><a href="{{site.workshop.github}}">Sign the guestbook</a></h3>
+                <h1 role="section-heading">{{site.workshop.name}}</h1>
+                <h3><a href="{{site.workshop.github}}">방명록에 여러분의 생각을 간단히 남겨주세요.</a></h3>
             </div>
 
             <div class="guestbook-content">
@@ -40,12 +40,16 @@ title: GitHub Workshop Guestbook
                         <a href="https://facebook.com/{{guest.facebook}}" alt="Facebook"><i class="fab fa-facebook"></i></a>
                       {% endif %}
 
+                      {% if guest.instagram %}
+                        <a href="https://instagram.com/{{guest.instagram}}" alt="Instagram"><i class="fab fa-instagram"></i></a>
+                      {% endif %}
+
                       {% if guest.github %}
                         <a href="https://github.com/{{guest.github}}" alt="GitHub"><i class="fab fa-github"></i></a>
                       {% endif %}
 
                       {% if guest.web %}
-                        <a href="http://{{guest.web}}" alt="Website"><i class="fas fa-globe"></i></a>
+                        <a href="{{guest.web}}" alt="Website"><i class="fas fa-globe"></i></a>
                       {% endif %}
 
                     </div>
@@ -59,11 +63,11 @@ title: GitHub Workshop Guestbook
     <section class="join" id="join-large">
         <div class="container">
             <div class="join-content">
-                <h3 role="section-heading">Sign the workshop guestbook!</h3>
+                <h3 role="section-heading">방명록에 여러분의 생각을 간단히 남겨주세요.</h3>
                 <div class="flag">
                         <img src="images/flag.png" alt="">
                 </div>
-                <a href="{{site.workshop.github}}" class="button button-white">Sign the guestbook!</a>
+                <a href="{{site.workshop.github}}" class="button button-white">방명록 남기러 가기</a>
             </div>
         </div>
     </section>
