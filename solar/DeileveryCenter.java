@@ -2,7 +2,10 @@
 public class DeliveryCenter {
     public void deliverOrder(DinnerCart dinnerCart, User user) {
         checkDeliveryCondition(dinnerCart, user);
-        deliverOrder();
+        CallResult callResult = callRiders();
+        if (callResult.isSuccess()) {
+            deliverOrder();
+        }
     }
 
     private void checkDeliveryCondition(DinnerCart dinnerCart, User user) {
@@ -12,6 +15,13 @@ public class DeliveryCenter {
         if (user.isAbuser()) {
             throw new OrderException("주문이 불가능합니다.");
         }
+    }
+
+    private CallResult callRiders() {
+        if(Callcenter.getAnyRiders().hasRiders()) {
+            return CallResult.ofSuccess();
+        }
+        return CallResult.ofFail();
     }
 
     private void deliverOrder(DinnerCart dinnerCart, User user) {
